@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { TodoList } from './TodoList';
+import { TodoItem } from './TodoItem';
 
 const API_URL = environment.apiUrl;
 @Injectable({
@@ -12,6 +13,9 @@ const API_URL = environment.apiUrl;
 })
 export class ApiService {
   log: any;
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   constructor(private http: HttpClient) { }
 
@@ -21,15 +25,64 @@ export class ApiService {
   //     return todoLists.map(t => new TodoList(t))
   //   });
   // }
-
+ 
+  ////////////////////////////////////////////TODO LIST ///////////////////////////////////////////////////
+  // GET -all todolists from mockapi.io
+  // GET /todolist
   public getAllTodoLists(): Observable<TodoList[]> {
-    return this.http.get<TodoList[]>(API_URL + 'todolist');
-    //      .pipe(catchError(this.handleError<TodoList[]>('getAllTodoLists', []))
-    // );
-
+    return this.http.get<TodoList[]>(API_URL + 'todolist')
+         .pipe(catchError(this.handleError<TodoList[]>('getAllTodoLists', [])));
   }
 
+  // POST
+  // /todolist
+  public addTodoList(todoList: TodoList): Observable<TodoList> {
+    return this.http.post<TodoList>(API_URL + 'todolist', todoList, this.httpOptions)
+      .pipe(
+        catchError(this.handleError('addHero', todoList))
+      );
+  }
 
+  // GET
+  // /todolist/:id
+
+  // PUT
+  // /todolist/:id
+
+  // DELETE
+  // /todolist/:id
+//////////////////////////////////////// TODOLIST ITEM ////////////////////////////////////////////////////////////
+  // POST
+  // /todolist/:id/item
+  public addItemToList(todoListId: number, todoItem: TodoItem): Observable<TodoItem>{
+    return this.http.post<TodoItem>(API_URL + 'todolist/' + todoListId + '/item', todoItem, this.httpOptions)
+      .pipe(
+        catchError(this.handleError('addItem', todoItem))
+      );
+  }
+
+  //  GET
+  // /todolist/:id/item
+
+  // GET
+  // /todolist/:id/item/:id
+
+  // PUT
+  // /todolist/:id/item/:id
+  public updateItem(todoListId: number, todoItem: TodoItem): Observable<TodoItem>{
+    return this.http.post<TodoItem>(API_URL + 'todolist/' + todoListId + '/item/' + todoItem.id, todoItem, this.httpOptions)
+      .pipe(
+        catchError(this.handleError('addItem', todoItem))
+      );
+  }
+  // DELETE
+  // /todolist/:id/item/:id
+  public deleteItem(todoListId: number, todoItemId: number): Observable<unknown>{
+    return this.http.delete(API_URL + 'todolist/' + todoListId + '/item/' + todoItemId, this.httpOptions)
+      .pipe(
+        catchError(this.handleError('deleteItem', todoItemId))
+      );
+  }
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

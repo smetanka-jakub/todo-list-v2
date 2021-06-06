@@ -4,6 +4,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { TodolistComponent } from './todolist/todolist.component';
@@ -20,7 +24,16 @@ import { TodolistItemComponent } from './todolist-item/todolist-item.component';
     HttpClientModule,
     FormsModule,
     MatSliderModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
+    MatInputModule,
+    BrowserAnimationsModule
+  ],
+  exports: [
+    MatSliderModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

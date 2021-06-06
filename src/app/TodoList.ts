@@ -1,6 +1,6 @@
 import { TodoItem } from './TodoItem';
 export interface TodoList {
-    id: string;
+    id: number;
+    title: string;
     items: TodoItem[];
-    topic: string;
 }

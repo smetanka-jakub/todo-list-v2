@@ -1,9 +1,19 @@
-<button mat-raised-button color="accent">Add new</button>
-<p>todolist works!</p>
+<!-- <button mat-raised-button color="accent">Add new</button>
+<p>todolist works!</p> -->
 
 <div name="todoLists" *ngFor="let todo of todoLists">
-    <h3>{{todo.topic}}</h3>
+    <h3 style="text-align: center;">{{todo.topic}}</h3>
+    <!-- <span><a href=""><mat-icon>more_vert</mat-icon></a></span> -->
+    <!-- <mat-form-field></mat-form-field> -->
+    <mat-form-field class="example-full-width">
+        <mat-icon matPrefix>search</mat-icon>
+        <mat-form-field appearance="fill">
+            <mat-label>Input</mat-label>
+            <input type="search" matInput>
+        </mat-form-field>
+    </mat-form-field>
+    
     <todolist-item *ngFor="let todoItem of todo.items" [todoItem]="todoItem"></todolist-item>
     <!-- <todolist-item [(ngModel)]="todo.items"></todolist-item> -->
-<div>
+</div>
 <!-- {{todoLists}} -->
