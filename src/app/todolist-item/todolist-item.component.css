@@ -1,0 +1,10 @@
+li {
+    border-radius: 3px;
+    box-shadow: #ccc 1px 1px 1px 10px;
+    list-style: none;
+    background-color: rgba(204, 204, 204, 0.356);
+    padding: 10px;
+    margin: 5%;
+    background-color: #fff;
+    box-shadow: #ccc 0px 5px 20px -5px;
+}
