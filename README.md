@@ -31,4 +31,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 1. npm install -g @angular/cli
 2. ng new todolist-app
 3. ng add @angular/material
-4.
+last state 0806 2325
+![image](https://user-images.githubusercontent.com/28692451/121259803-d481ae80-c8b0-11eb-832b-13cb4b991978.png)
