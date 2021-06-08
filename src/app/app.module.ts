@@ -7,6 +7,8 @@ import { MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -28,6 +30,8 @@ import { TodolistItemComponent } from './todolist-item/todolist-item.component';
     MatIconModule,
     MatListModule,
     MatInputModule,
+    MatGridListModule,
+    MatCheckboxModule,
     BrowserAnimationsModule
   ],
   exports: [

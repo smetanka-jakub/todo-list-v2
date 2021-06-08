@@ -1,4 +1,7 @@
-<li>
-    <p>{{todoItem.task}}</p>
-    <p>{{todoItem.date | date }}</p>
-</li>
+<div>
+    <p style="font-size: smaller; color: #ccc;margin: 0; text-align: right;"><span><a (click)="deleteItem(todoItem.todolistId, todoItem.id)"><mat-icon style="text-align: right; transform: scale(0.8);" matSuffix>edit</mat-icon><mat-icon style="text-align: right; transform: scale(0.8);" matSuffix>done</mat-icon><mat-icon style="text-align: right; transform: scale(0.8);" matSuffix>delete</mat-icon></a></span></p>
+    <h6 style="margin: 0; font-size: small;">{{todoItem.title}}</h6>
+    <p style="font-size: smaller;">{{todoItem.description}}</p>
+    <p style="font-size: smaller; color: #ccc; text-align: right; margin-bottom: 0;">{{todoItem.deadline | date }}</p>
+    <!-- text-overflow: ellipsis;  -->
+</div>

@@ -23,4 +23,8 @@ export class TodolistComponent implements OnInit {
     });
     console.log(this.todoLists);
   }
+
+  createNewTodoList(): void {
+    this.apiService.addTodoList({id: 200, title: 'aaaaaaaa', items: []}).subscribe();
+  }
 }

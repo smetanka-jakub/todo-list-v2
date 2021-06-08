@@ -1,19 +1,68 @@
 <!-- <button mat-raised-button color="accent">Add new</button>
 <p>todolist works!</p> -->
-
-<div name="todoLists" *ngFor="let todo of todoLists">
-    <h3 style="text-align: center;">{{todo.topic}}</h3>
-    <!-- <span><a href=""><mat-icon>more_vert</mat-icon></a></span> -->
-    <!-- <mat-form-field></mat-form-field> -->
-    <mat-form-field class="example-full-width">
-        <mat-icon matPrefix>search</mat-icon>
-        <mat-form-field appearance="fill">
-            <mat-label>Input</mat-label>
-            <input type="search" matInput>
-        </mat-form-field>
-    </mat-form-field>
+<section>
     
-    <todolist-item *ngFor="let todoItem of todo.items" [todoItem]="todoItem"></todolist-item>
-    <!-- <todolist-item [(ngModel)]="todo.items"></todolist-item> -->
-</div>
-<!-- {{todoLists}} -->
+</section>
+<section>
+    <button mat-raised-button color="accent">Add new</button>
+</section>
+<section>
+        <div class="list" name="todoLists" *ngFor="let todo of todoLists">
+            <section class="btns">
+                <mat-form-field color="accent" style="margin: auto; width: 180px; padding-left: 25px;">
+                    <input matInput type="text" placeholder="Search">
+                    <button mat-button matPrefix mat-icon-button>
+                        <mat-icon>search</mat-icon>
+                    </button>                
+                </mat-form-field>
+                <!-- <span style="display: inline; color: #ccc;">
+                    <mat-icon>filter_alt</mat-icon>
+                </span> -->
+            </section>
+            <h4 style="text-align: left; padding: 0 25px; margin-top: 0;">{{todo.title}}</h4>
+            <!-- <span><a href=""><mat-icon>more_vert</mat-icon></a></span> -->
+            <!-- <mat-form-field></mat-form-field> -->
+            <!-- <mat-form-field class="example-full-width">
+        
+            </mat-form-field> -->
+            <div style="text-align: center; width: 250px;">
+                <button mat-raised-button color="accent" style="width: 200px; padding: 0 25px;" >Add new task +</button>
+            </div>
+            <div style="text-align: center; margin: 20px;">
+                <mat-checkbox style="margin: 0 10px;">Done</mat-checkbox>
+                <mat-checkbox style="margin: 0 10px;">Active</mat-checkbox>
+            </div>
+
+            <todolist-item *ngFor="let todoItem of todo.items" [todoItem]="todoItem"></todolist-item>
+            <!-- <todolist-item [(ngModel)]="todo.items"></todolist-item> -->
+        </div>
+        <div class="list" style="min-height: 300px; vertical-align: middle; text-align: center; border-color: #ccc; border-style: dashed;">
+            <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+              <mat-icon (click)="createNewTodoList()">add</mat-icon>
+            </button>
+            <h2 style="filter: blur(4px); color:#ccc">blured title</h2>
+            <!-- <p color="accent" style="width: 200px; padding: 0 25px; filter: blur(4px); background-color: #ff4081;" >Add new task +</p>
+            <mat-checkbox style="margin: 0 10px; filter: blur(4px);">Done</mat-checkbox>
+            <mat-checkbox style="margin: 0 10px;filter: blur(4px);">Active</mat-checkbox> -->
+            <li style="filter: blur(4px);height: 100px; border-radius: 3px;
+            box-shadow: #ccc 1px 1px 1px 10px;
+            list-style: none;
+            background-color: rgba(204, 204, 204, 0.356);
+            padding: 10px;
+            margin: 5%;
+            background-color: #fff;
+            box-shadow: #ccc 0px 5px 20px -5px;"></li>
+            <li style="filter: blur(4px);border-radius: 3px;
+            box-shadow: #ccc 1px 1px 1px 10px;
+            list-style: none;
+            background-color: rgba(204, 204, 204, 0.356);
+            padding: 10px;
+            margin: 5%;
+            background-color: #fff;
+            box-shadow: #ccc 0px 5px 20px -5px;"></li>
+
+        </div>
+    
+    <!-- {{todoLists}} -->
+</section>
+

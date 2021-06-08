@@ -1,5 +1,6 @@
 export interface TodoItem {
-    id: number
+    id: number;
+    todolistId: number;
     title: string;
     description: string;
     deadline: Date;
