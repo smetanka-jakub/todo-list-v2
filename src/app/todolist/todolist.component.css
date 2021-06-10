@@ -4,8 +4,13 @@ div.list {
     width: 250px;
     display: inline-block;
     margin: 15px;
-    padding: 15px;
+    padding: 10px 15px 15px;
     background-color: #fff;
     box-shadow: #ccc 0px 5px 20px -5px;
     vertical-align:top;
 }
+
+/* div.list > section {
+    top: -35px;
+    position: relative;
+} */
