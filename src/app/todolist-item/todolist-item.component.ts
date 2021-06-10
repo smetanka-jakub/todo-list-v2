@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../api.service';
 import { TodoItem } from '../TodoItem';
 import { TodoList } from '../TodoList';
-import { DialogData } from '../DialogData';
+
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { TodolistItemDetailComponent } from '../todolist-item-detail/todolist-item-detail.component';
 
