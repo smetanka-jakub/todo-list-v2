@@ -2,8 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../api.service';
 import { TodoItem } from '../TodoItem';
 import { TodoList } from '../TodoList';
-
-import { Router } from '@angular/router';
+import { DialogData } from '../DialogData';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { TodolistItemDetailComponent } from '../todolist-item-detail/todolist-item-detail.component';
 
 @Component({
   selector: 'todolist-item',
@@ -14,7 +15,7 @@ export class TodolistItemComponent implements OnInit {
   @Input() todoItem!: TodoItem;
   @Input() todoList!: TodoList;
 
-  constructor( private apiService: ApiService, private router: Router) { }
+  constructor( public dialog: MatDialog, private apiService: ApiService) { }
 
   ngOnInit(): void {
   }
@@ -28,5 +29,20 @@ export class TodolistItemComponent implements OnInit {
   toggleDoneStatus(todoListId: number, todoItem: TodoItem){
     todoItem.done = !todoItem.done;
     this.apiService.updateItem(todoListId, todoItem).subscribe();
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(TodolistItemDetailComponent, {
+      width: '500px',
+      data: {
+        item: this.todoItem,
+        flag: 'update'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // this.todoItem = result;
+    });
   }
 }

@@ -5,7 +5,7 @@
 </section>
 <section>
     <div class="list" name="todoLists" *ngFor="let todo of todoLists">
-        <p style="font-size: smaller; color: #ccc;margin: 0; text-align: right;"><span><a (click)="deleteTodoList(todo)"><mat-icon style="text-align: right; transform: scale(0.8); cursor: pointer;" matSuffix>edit</mat-icon><mat-icon style="text-align: right; transform: scale(0.8); cursor: pointer;" matSuffix>delete</mat-icon></a></span></p>
+        <p style="font-size: smaller; color: #ccc;margin: 0; text-align: right;"><span><a><mat-icon style="text-align: right; transform: scale(0.8); cursor: pointer;" matSuffix>edit</mat-icon><mat-icon style="text-align: right; transform: scale(0.8); cursor: pointer;" matSuffix>delete</mat-icon></a></span></p>
         <section class="btns">
             <mat-form-field color="accent" style="margin: auto; width: 180px; padding-left: 25px;">
                 <input matInput type="text" placeholder="Search">
@@ -14,7 +14,7 @@
                 </button>                
             </mat-form-field>
             <div style="text-align: center; width: 250px;">
-                <button mat-raised-button color="accent" style="width: 200px; padding: 0 25px;" (click)="addItem(todo)" >Add new task +</button>
+                <button mat-raised-button color="accent" style="width: 200px; padding: 0 25px;" (click)="openDialog(todo)" >Add new task +</button>
             </div>
             
             <div name="filter" style="margin: 20px;">
@@ -50,7 +50,7 @@
                 <button mat-raised-button color="accent" style="width: 200px; padding: 0 25px;" (click)="addItem(todo)" >Add new task +</button>
             </div> -->
             <div style="text-align: center; width: 200px; border-style: dashed; padding: 10px; margin: auto; color: #ccc;" *ngIf="todo.items && todo.items.length > 0">
-                <button mat-mini-fab color="accent"  (click)="addItem(todo)" >+</button>
+                <button mat-mini-fab color="accent"  (click)="openDialog(todo)" >+</button>
                 <!-- <li style="filter: blur(4px);height: 30px; border-radius: 3px;
                 box-shadow: #ccc 1px 1px 1px 10px;
                 list-style: none;

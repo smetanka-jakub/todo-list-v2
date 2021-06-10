@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Inject } from '@angular/core';
+import { DialogData } from '../DialogData';
+import { TodoItem } from '../TodoItem';
+import { TodoList } from '../TodoList';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-todolist-item-detail',
@@ -7,29 +13,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./todolist-item-detail.component.css']
 })
 export class TodolistItemDetailComponent implements OnInit {
-  showModal = false;
 
-  constructor( private router: Router ) { }
+  constructor(
+    public dialogRef: MatDialogRef<TodolistItemDetailComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: {
+      list: TodoList,
+      item: TodoItem,
+      flag: string,
+      id: number
+    }, private apiService: ApiService) {}
 
-  ngAfterViewInit() {
-    this.showModal = true;
+  onNoClick(): void {
+    this.dialogRef.close();
   }
+  save(item: TodoItem, flag: string, id: number): void{
+    console.log('item %o', item);
+    if(flag === 'create'){
+      this.apiService.addItemToList(id, item).subscribe( todoItem => {
+        console.log('todoItem %o', todoItem);
+        this.dialogRef.close(todoItem);
+        // todoList.items.push(todoItem);
+      });
+    } else {
+      this.apiService.updateItem(item.todolistId, item).subscribe( result => {
+        this.dialogRef.close();
+      });
+    }
 
-  onClose() {
-    this.showModal = false;
-    //Allow fade out animation to play before navigating back
-    setTimeout(
-      () => this.router.navigate(['..']),
-      100
-    );
-  }
 
-  onDialogClick(event: UIEvent) {
-    // Capture click on dialog and prevent it from bubbling to the modal background.
-    event.stopPropagation();
-    event.cancelBubble = true;
-  }
-
+  } 
   ngOnInit(): void {
   }
 

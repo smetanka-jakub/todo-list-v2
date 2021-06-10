@@ -3,6 +3,8 @@ import { ApiService } from '../api.service';
 import { TodoItem } from '../TodoItem';
 import { TodoList } from '../TodoList';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { TodolistItemDetailComponent } from '../todolist-item-detail/todolist-item-detail.component';
 @Component({
   selector: 'todolist',
   templateUrl: './todolist.component.html',
@@ -11,12 +13,13 @@ import { Router } from '@angular/router';
 export class TodolistComponent implements OnInit {
   
   todoLists: TodoList[] = [];
+  todoItem: TodoItem = {} as TodoItem;
   filtered: TodoItem[] = [];
   filter = {
     done: false,
     active: false
   };
-  constructor( private apiService: ApiService ) { }
+  constructor( public dialog: MatDialog, private apiService: ApiService ) { }
 
   ngOnInit(): void {
     this.getTodoLists();
@@ -41,12 +44,28 @@ export class TodolistComponent implements OnInit {
     this.apiService.deleteTodoList(todoList.id).subscribe();
   }
 
-  addItem(todoList: TodoList): void {
-    this.apiService.addItemToList(todoList, {} as TodoItem).subscribe( todoItem =>{
-      todoList.items.push(todoItem);
+  // addItem(todoList: TodoList): void {
+  //   this.apiService.addItemToList({} as TodoItem).subscribe( todoItem =>{
+  //     todoList.items.push(todoItem);
+  //   });
+  // }
+
+  openDialog(todoList: TodoList): void {
+    const dialogRef = this.dialog.open(TodolistItemDetailComponent, {
+      width: '500px',
+      data: {
+        item: this.todoItem,
+        flag: 'create',
+        id: todoList.id
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result !== undefined){
+        todoList.items.push(result);
+      }
     });
   }
-
   // filterChange(todoList: TodoList){
   //   this.filtered = todoList.items.filter(i => 
   //     (i.done === true && this.filter.done === true)

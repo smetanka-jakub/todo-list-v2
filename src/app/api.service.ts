@@ -68,8 +68,8 @@ export class ApiService {
 //////////////////////////////////////// TODOLIST ITEM ////////////////////////////////////////////////////////////
   // POST
   // /todolist/:id/item
-  addItemToList(todoList: TodoList, todoItem: TodoItem): Observable<TodoItem>{
-    return this.http.post<TodoItem>(API_URL + 'todolist/' + todoList.id + '/item', todoItem, this.httpOptions)
+  addItemToList(id: number, todoItem: TodoItem): Observable<TodoItem>{
+    return this.http.post<TodoItem>(API_URL + 'todolist/' + id + '/item', todoItem, this.httpOptions)
       .pipe(
         catchError(this.handleError('addItem', todoItem))
       );
