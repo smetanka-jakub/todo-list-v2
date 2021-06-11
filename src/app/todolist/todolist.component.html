@@ -8,7 +8,7 @@
         <p style="font-size: smaller; color: #ccc;margin: 0; text-align: right;"><span><a><mat-icon style="text-align: right; transform: scale(0.8); cursor: pointer;" matSuffix>edit</mat-icon><mat-icon style="text-align: right; transform: scale(0.8); cursor: pointer;" matSuffix>delete</mat-icon></a></span></p>
         <section class="btns">
             <mat-form-field color="accent" style="margin: auto; width: 180px; padding-left: 25px;">
-                <input matInput type="text" placeholder="Search">
+                <input matInput type="text" placeholder="Search" [(ngModel)]="todo.query">
                 <button mat-button matPrefix mat-icon-button>
                     <mat-icon>search</mat-icon>
                 </button>                
@@ -45,7 +45,7 @@
                     <mat-radio-button value="3">Active</mat-radio-button>
                 </mat-radio-group>
             </div> -->
-            <todolist-item *ngFor="let todoItem of todo.items" [todoList]="todo" [todoItem]="todoItem"></todolist-item>
+            <todolist-item *ngFor="let todoItem of todo.items | searchFilter: todo.query" [todoList]="todo" [todoItem]="todoItem"></todolist-item>
             <!-- <div style="text-align: center; width: 250px;">
                 <button mat-raised-button color="accent" style="width: 200px; padding: 0 25px;" (click)="addItem(todo)" >Add new task +</button>
             </div> -->
