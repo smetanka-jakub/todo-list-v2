@@ -11,6 +11,8 @@ import { TodolistItemDetailComponent } from '../todolist-item-detail/todolist-it
   styleUrls: ['./todolist.component.css']
 })
 export class TodolistComponent implements OnInit {
+
+  searchFilter: any = '';
   
   todoLists: TodoList[] = [];
   todoItem: TodoItem = {} as TodoItem;
@@ -19,7 +21,7 @@ export class TodolistComponent implements OnInit {
     done: false,
     active: false
   };
-  constructor( public dialog: MatDialog, private apiService: ApiService ) { }
+  constructor( public dialog: MatDialog, private apiService: ApiService  ) { }
 
   ngOnInit(): void {
     this.getTodoLists();

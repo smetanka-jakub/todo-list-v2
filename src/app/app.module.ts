@@ -19,6 +19,7 @@ import { TodolistItemComponent } from './todolist-item/todolist-item.component';
 import { TodolistItemDetailComponent } from './todolist-item-detail/todolist-item-detail.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { SearchFilterPipe } from './search-filter.pipe';
 
 // const routes: Routes = [
 //   { 
@@ -32,7 +33,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     AppComponent,
     TodolistComponent,
     TodolistItemComponent,
-    TodolistItemDetailComponent
+    TodolistItemDetailComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,
