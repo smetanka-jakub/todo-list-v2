@@ -14,7 +14,6 @@ export class SearchFilterPipe implements PipeTransform {
       args = args.toLowerCase();
 
       return value.filter(function(data: TodoItem[]){
-          console.log('callll');
           return JSON.stringify(data).toLowerCase().includes(args);
       });
   }

@@ -2,7 +2,18 @@
 * {
     font-family: 'Roboto';
 }
-html, body {overflow-x: scroll; width: 150%;}
+html {
+    background-image: linear-gradient(to right, #ffffff,  #eee, #ffff);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+body {
+    overflow-x: auto; 
+    width: max-content;
+    height: 100%;
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 a{
@@ -11,3 +22,4 @@ a{
 mat-form-field.full {
     width: 100%;
 }
+

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { TodoItem } from '../TodoItem';
 import { TodoList } from '../TodoList';
-import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TodolistItemDetailComponent } from '../todolist-item-detail/todolist-item-detail.component';
+import { TodolistDetailComponent } from '../todolist-detail/todolist-detail.component';
 @Component({
   selector: 'todolist',
   templateUrl: './todolist.component.html',
@@ -13,15 +13,11 @@ import { TodolistItemDetailComponent } from '../todolist-item-detail/todolist-it
 export class TodolistComponent implements OnInit {
 
   searchFilter: any = '';
-  
+  radio: any = '';
   todoLists: TodoList[] = [];
   todoItem: TodoItem = {} as TodoItem;
-  filtered: TodoItem[] = [];
-  filter = {
-    done: false,
-    active: false
-  };
-  constructor( public dialog: MatDialog, private apiService: ApiService  ) { }
+
+  constructor( public dialog: MatDialog, private apiService: ApiService) {}
 
   ngOnInit(): void {
     this.getTodoLists();
@@ -30,14 +26,6 @@ export class TodolistComponent implements OnInit {
   getTodoLists(): void {
     this.apiService.getAllTodoLists().subscribe(todos => {
       this.todoLists = todos;
-      console.log('this todoList %o', this.todoLists);
-    });
-    console.log(this.todoLists);
-  };
-
-  createNewTodoList(): void {
-    this.apiService.addTodoList({} as TodoList).subscribe( todoList => {
-      this.todoLists.push(todoList);
     });
   };
 
@@ -46,13 +34,11 @@ export class TodolistComponent implements OnInit {
     this.apiService.deleteTodoList(todoList.id).subscribe();
   }
 
-  // addItem(todoList: TodoList): void {
-  //   this.apiService.addItemToList({} as TodoItem).subscribe( todoItem =>{
-  //     todoList.items.push(todoItem);
-  //   });
-  // }
+  filterChange(e: any){
+    this.radio = e;
+  }
 
-  openDialog(todoList: TodoList): void {
+  openDialogAddTask(todoList: TodoList): void {
     const dialogRef = this.dialog.open(TodolistItemDetailComponent, {
       width: '500px',
       data: {
@@ -68,12 +54,20 @@ export class TodolistComponent implements OnInit {
       }
     });
   }
-  // filterChange(todoList: TodoList){
-  //   this.filtered = todoList.items.filter(i => 
-  //     (i.done === true && this.filter.done === true)
-  //     || ((i.done === false || i.done === true) && (this.filter.done === false))
-  //     || (i.done === true && this.filter.done === false)
-  //  );
-  //  console.log('filtered %o', this.filtered);
-  // }
+
+  createOrUpdateTodoList(flag: string, todoList?: TodoList): void {
+    const dialogRef = this.dialog.open(TodolistDetailComponent, {
+      width: '500px',
+      data: {
+        list: (todoList !== undefined ? todoList :{} as TodoList),
+        flag: flag
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result !== undefined){
+        this.todoLists.push(result);
+      }
+    });
+  }
 }

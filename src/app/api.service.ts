@@ -18,13 +18,6 @@ export class ApiService {
   };
 
   constructor(private http: HttpClient) { }
-
-  // public getAllTodoLists(){
-  //   this.http.get(API_URL + '/todolist').map( response => {
-  //     const todolists = response.json;
-  //     return todoLists.map(t => new TodoList(t))
-  //   });
-  // }
  
   ////////////////////////////////////////////TODO LIST ///////////////////////////////////////////////////
   // GET -all todolists from mockapi.io

@@ -3,5 +3,6 @@ export interface TodoList {
     id: number;
     title: string;
     items: TodoItem[];
-    query: string
+    query: string;
+    radio: string
 }

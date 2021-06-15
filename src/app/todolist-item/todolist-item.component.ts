@@ -21,7 +21,6 @@ export class TodolistItemComponent implements OnInit {
   }
 
   deleteItem(todoListId: number, todoItemId: number): void {
-    console.log('calll delete');
     this.todoList.items = this.todoList.items.filter(h => h.id !== todoItemId);
     this.apiService.deleteItem(todoListId, todoItemId).subscribe();
   }
@@ -31,7 +30,7 @@ export class TodolistItemComponent implements OnInit {
     this.apiService.updateItem(todoListId, todoItem).subscribe();
   }
 
-  openDialog(): void {
+  openDialogEditTask(): void {
     const dialogRef = this.dialog.open(TodolistItemDetailComponent, {
       width: '500px',
       data: {
@@ -41,8 +40,8 @@ export class TodolistItemComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      // this.todoItem = result;
+
+      this.todoItem = result;
     });
   }
 }
