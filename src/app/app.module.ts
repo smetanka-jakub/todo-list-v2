@@ -10,7 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatRadioModule } from '@angular/material/radio'
+import { MatRadioModule } from '@angular/material/radio';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AppComponent } from './app.component';
@@ -31,40 +31,40 @@ import { TodolistDetailComponent } from './todolist-detail/todolist-detail.compo
 // ]
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TodolistComponent,
-    TodolistItemComponent,
-    TodolistItemDetailComponent,
-    SearchFilterPipe,
-    RadioFilterPipe,
-    TodolistDetailComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule,
-    MatSliderModule,
-    MatButtonModule,
-    MatIconModule,
-    MatListModule,
-    MatInputModule,
-    MatGridListModule,
-    MatCheckboxModule,
-    MatDialogModule,
-    MatRadioModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    // RouterModule.forRoot(routes),
-    
-    BrowserAnimationsModule
-  ],
-  exports: [
-    MatSliderModule,
-    MatButtonModule,
-    MatIconModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		TodolistComponent,
+		TodolistItemComponent,
+		TodolistItemDetailComponent,
+		SearchFilterPipe,
+		RadioFilterPipe,
+		TodolistDetailComponent
+	],
+	imports: [
+		BrowserModule,
+		HttpClientModule,
+		FormsModule,
+		MatSliderModule,
+		MatButtonModule,
+		MatIconModule,
+		MatListModule,
+		MatInputModule,
+		MatGridListModule,
+		MatCheckboxModule,
+		MatDialogModule,
+		MatRadioModule,
+		MatDatepickerModule,
+		MatNativeDateModule,
+		// RouterModule.forRoot(routes),
+		
+		BrowserAnimationsModule
+	],
+	exports: [
+		MatSliderModule,
+		MatButtonModule,
+		MatIconModule
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
