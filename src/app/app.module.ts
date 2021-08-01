@@ -31,36 +31,36 @@ import { TodolistDetailComponent } from './todolist-detail/todolist-detail.compo
 // ]
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        TodolistComponent,
-        TodolistItemComponent,
-        TodolistItemDetailComponent,
-        SearchFilterPipe,
-        RadioFilterPipe,
-        TodolistDetailComponent,
-    ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        FormsModule,
-        MatSliderModule,
-        MatButtonModule,
-        MatIconModule,
-        MatListModule,
-        MatInputModule,
-        MatGridListModule,
-        MatCheckboxModule,
-        MatDialogModule,
-        MatRadioModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        // RouterModule.forRoot(routes),
+  declarations: [
+    AppComponent,
+    TodolistComponent,
+    TodolistItemComponent,
+    TodolistItemDetailComponent,
+    SearchFilterPipe,
+    RadioFilterPipe,
+    TodolistDetailComponent
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    MatSliderModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
+    MatInputModule,
+    MatGridListModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    // RouterModule.forRoot(routes),
 
-        BrowserAnimationsModule,
-    ],
-    exports: [MatSliderModule, MatButtonModule, MatIconModule],
-    providers: [],
-    bootstrap: [AppComponent],
+    BrowserAnimationsModule
+  ],
+  exports: [MatSliderModule, MatButtonModule, MatIconModule],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
