@@ -1,3 +1,5 @@
+its a copy of todolist-app from my repository https://github.com/smetanka-jakub/todolist-app
+The purpose of v2 is integratation of tools to increase code quality, use best practices for app structure, etc ... see isseues tab
 heroku live
 https://lit-waters-51478.herokuapp.com/
 
