@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ApiService } from '../api.service';
-import { TodoList } from '../TodoList';
+import { ApiService } from 'src/app/core/services/api/api.service';
+import { TodoList } from '../../shared/models/TodoList';
 
 @Component({
     selector: 'app-todolist-detail',

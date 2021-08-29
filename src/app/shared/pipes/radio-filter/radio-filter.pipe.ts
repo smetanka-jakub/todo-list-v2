@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Pipe, PipeTransform } from '@angular/core';
-import { TodoItem } from './TodoItem';
+import { TodoItem } from '../../models/TodoItem';
 
 @Pipe({
     name: 'radioFilter',

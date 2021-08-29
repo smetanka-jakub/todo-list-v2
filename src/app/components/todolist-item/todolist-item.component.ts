@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ApiService } from '../api.service';
-import { TodoItem } from '../TodoItem';
-import { TodoList } from '../TodoList';
+import { ApiService } from '../../core/services/api/api.service';
+import { TodoItem } from '../../shared/models/TodoItem';
+import { TodoList } from '../../shared/models/TodoList';
 
 import { MatDialog } from '@angular/material/dialog';
 import { TodolistItemDetailComponent } from '../todolist-item-detail/todolist-item-detail.component';
