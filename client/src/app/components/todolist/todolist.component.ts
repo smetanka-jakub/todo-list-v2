@@ -1,7 +1,7 @@
 /* eslint-disable @angular-eslint/component-selector */
 /* eslint-disable quotes */
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../core/services/api/api.service';
+import { ApiService } from '../../shared/services/api/api.service';
 import { TodoItem } from '../../shared/models/TodoItem';
 import { TodoList } from '../../shared/models/TodoList';
 import { MatDialog } from '@angular/material/dialog';

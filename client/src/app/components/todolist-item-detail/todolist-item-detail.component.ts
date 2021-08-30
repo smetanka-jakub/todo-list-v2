@@ -5,7 +5,7 @@ import { Inject } from '@angular/core';
 
 import { TodoItem } from '../../shared/models/TodoItem';
 import { TodoList } from '../../shared/models/TodoList';
-import { ApiService } from '../../core/services/api/api.service';
+import { ApiService } from '../../shared/services/api/api.service';
 
 @Component({
   selector: 'app-todolist-item-detail',
