@@ -3,23 +3,25 @@
     font-family: 'Roboto';
 }
 html {
-    background-image: linear-gradient(to right, #ffffff,  #eee, #ffff);
+    background-image: linear-gradient(to right, #ffffff, #eee, #ffff);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
 }
 
 body {
-    overflow-x: auto; 
+    overflow-x: auto;
     width: max-content;
     height: 100%;
 }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    margin: 0;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
 
-a{
+a {
     cursor: pointer;
 }
 mat-form-field.full {
     width: 100%;
 }
-

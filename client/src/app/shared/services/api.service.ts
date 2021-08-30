@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
-import { environment } from '../environments/environment';
+import { environment } from '../../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { TodoList } from './TodoList';
-import { TodoItem } from './TodoItem';
+import { TodoList } from '../../../shared/models/TodoList';
+import { TodoItem } from '../../../shared/models/TodoItem';
 
 const API_URL = environment.apiUrl;
 @Injectable({

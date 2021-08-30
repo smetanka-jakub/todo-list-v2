@@ -14,14 +14,14 @@ import { MatRadioModule } from '@angular/material/radio';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AppComponent } from './app.component';
-import { TodolistComponent } from './todolist/todolist.component';
-import { TodolistItemComponent } from './todolist-item/todolist-item.component';
-import { TodolistItemDetailComponent } from './todolist-item-detail/todolist-item-detail.component';
+import { TodolistComponent } from './components/todolist/todolist.component';
+import { TodolistItemComponent } from './components/todolist-item/todolist-item.component';
+import { TodolistItemDetailComponent } from './components/todolist-item-detail/todolist-item-detail.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { SearchFilterPipe } from './search-filter.pipe';
-import { RadioFilterPipe } from './radio-filter.pipe';
-import { TodolistDetailComponent } from './todolist-detail/todolist-detail.component';
+import { SearchFilterPipe } from './shared/pipes/search-filter/search-filter.pipe';
+import { RadioFilterPipe } from './shared/pipes/radio-filter/radio-filter.pipe';
+import { TodolistDetailComponent } from './components/todolist-detail/todolist-detail.component';
 
 // const routes: Routes = [
 //   {
