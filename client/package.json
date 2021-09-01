@@ -10,7 +10,8 @@
     "deploy": "git push origin master && git push heroku master",
     "prepare": "husky install",
     "pretty-quick": "pretty-quick",
-    "lint": "ng lint"
+    "lint": "ng lint",
+        "cypressopen": "npx cypress open"
   },
   "husky": {
     "hooks": {
