@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "deploy": "git push origin master && git push heroku master",
-    "prepare": "husky install",
+    "prepare": "cd ../ && husky install ./client/.husky",
     "pretty-quick": "pretty-quick",
     "lint": "ng lint",
     "cypressopen": "npx cypress open"
