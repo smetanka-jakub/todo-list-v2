@@ -11,7 +11,7 @@
     "prepare": "husky install",
     "pretty-quick": "pretty-quick",
     "lint": "ng lint",
-        "cypressopen": "npx cypress open"
+        "cypressopen": "npx cypress open"     
   },
   "husky": {
     "hooks": {
