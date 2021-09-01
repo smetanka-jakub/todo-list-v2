@@ -42,7 +42,7 @@ export class ApiService {
   getTodoList(todoListId: number): Observable<TodoList> {
     return this.http
       .get<TodoList>(API_URL + 'todolist' + todoListId)
-      .pipe(catchError(this.handleError<TodoList>('getTodoList')));
+                .pipe(catchError(this.handleError<TodoList>('getTodoList')));
   }
   // PUT
   // /todolist/:id
