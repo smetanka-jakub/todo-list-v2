@@ -3,9 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "ng build --watch --configuration development",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "deploy": "git push origin master && git push heroku master",
     "prepare": "cd ../ && husky install ./client/.husky",

@@ -1,16 +1,26 @@
 //Install express server
-const express = require('express');
-const path = require('path');
+const express = require("express");
+const path = require("path");
 
 const app = express();
 
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/todolist-app'));
+// app.use(express.static(__dirname + '/dist/todolist-app'));
 
-app.get('/*', function(req,res) {
-    
-res.sendFile(path.join(__dirname+'/dist/todolist-app/index.html'));
-});
+// app.get('/*', function(req,res) {
+
+// res.sendFile(path.join(__dirname+'/dist/todolist-app/index.html'));
+// });
 
 // Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 4200);
+// app.listen(process.env.PORT || 4200);
+
+const port = 4200;
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
+});
