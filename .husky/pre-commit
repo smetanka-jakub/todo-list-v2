@@ -1,4 +1,6 @@
-#!/bin/sh
+
+#!/bin/sh 
 . "$(dirname "$0")/_/husky.sh"
+
 echo "in pre-commit"
-pretty-quick --staged ng lint ng test
+cd ./client && pretty-quick --staged ng lint ng test
