@@ -3,6 +3,7 @@
     mat-raised-button
     color="accent"
     (click)="createOrUpdateTodoList('create', undefined)"
+    data-cy="newList"
   >
     Add new todolist
   </button>
@@ -48,6 +49,7 @@
           color="accent"
           style="width: 200px; padding: 0 25px"
           (click)="openDialogAddTask(todo)"
+          data-cy="newTask"
         >
           Add new task +
         </button>
