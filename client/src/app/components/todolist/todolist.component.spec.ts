@@ -9,7 +9,7 @@ describe('TodolistComponent', () => {
   let component: TodolistComponent;
   let todolists: TodoList[];
   let dialog: MatDialog = {} as MatDialog;
-  let mockHeroService: any;
+  let mockApiService: any;
   beforeEach(async () => {
     todolists = [
       {
@@ -31,12 +31,12 @@ describe('TodolistComponent', () => {
     ];
   });
 
-  mockHeroService = jasmine.createSpyObj(['getAllTodoLists', 'deleteTodoList']);
-  component = new TodolistComponent(dialog, mockHeroService);
+  mockApiService = jasmine.createSpyObj(['getAllTodoLists', 'deleteTodoList']);
+  component = new TodolistComponent(dialog, mockApiService);
 
   describe('delete', () => {
     it('should remove indicated todolist from todolist list', () => {
-      mockHeroService.deleteTodoList.and.returnValue(of(true));
+      mockApiService.deleteTodoList.and.returnValue(of(true));
       component.todoLists = todolists;
       component.deleteTodoList(todolists[0]);
 
