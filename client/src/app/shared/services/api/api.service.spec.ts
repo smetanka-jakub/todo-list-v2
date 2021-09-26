@@ -6,6 +6,7 @@ import {
 
 import { ApiService } from './api.service';
 import { TodoList } from '../../models/TodoList';
+import { Observable } from 'rxjs';
 
 describe('ApiService', () => {
   let injector: TestBed;
@@ -52,6 +53,18 @@ describe('ApiService', () => {
     expect(req.request.method).toBe('GET');
     req.flush(todolistResponse);
   });
+
+  it('not found should return error', () => {
+    const emptyFn: any = () => {};
+    const spy = spyOn(service, 'handleError').and.callFake(emptyFn);
+
+    // act
+    service.handleError();
+
+    // assert
+    expect(spy).toHaveBeenCalled();
+  });
+
   afterEach(() => {
     httpMock.verify();
   });
